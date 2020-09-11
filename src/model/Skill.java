@@ -16,11 +16,10 @@ public class Skill {
 	public void setSkillName(String skillName) {
 		this.skillName = skillName;
 	}
-//	public Skill(Long skillId, String skillName) {
-//		super();
-//		this.skillId = skillId;
-//		this.skillName = skillName;
-//	}
+	public Skill(Long skillId, String skillName) {
+		this.skillId = skillId;
+		this.skillName = skillName;
+	}
 	
 	
 	

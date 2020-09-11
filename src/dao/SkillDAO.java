@@ -12,26 +12,22 @@ import model.Skill;
 import utility.ConnectionManager;
 
 public class SkillDAO {
-	List<Skill>  list = new ArrayList<Skill>();
-
 	
 	public List<Skill >listAllSkills() throws ClassNotFoundException, SQLException, IOException{
 		
-		Skill skill = null;
+		List<Skill>  list = new ArrayList<Skill>();
+
 		ConnectionManager con = new ConnectionManager();
 		
 		Statement st= con.getConnection().createStatement();
 		
-		String sql= "SELECT * FROM SKILLS";
+		String sql= "SELECT * FROM SKILL";
+			
 		ResultSet rs= st.executeQuery(sql);
 		
 		while(rs.next()) {
-			skill= new Skill();
-			
-			skill.setSkillId("SKILLID");
-			skill.setSkillName(rs.getString("NAME"));
+			Skill skill = new Skill(rs.getLong("ID") , rs.getString("NAME"));
 			list.add(skill);
-		
 		}
 		
 		return list;
